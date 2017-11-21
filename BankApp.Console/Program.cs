@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bank.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,9 @@ namespace BankApp.Console
     {
         static void Main(string[] args)
         {
-            new CreateCustomer
+            CustomerServices bank = new CustomerServices();
+            bank.CreateCustomer("Jack", "Sparrow", 7);
+        
 
         }
     }
