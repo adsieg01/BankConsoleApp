@@ -9,10 +9,14 @@ using System.Threading.Tasks;
 
 namespace BankApp.Console
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            AuthServices authServices = new AuthServices();
+            
+
+            
             //Opening Screen
                 System.Console.WriteLine(FiggleFonts.Standard.Render("Bank of Tomorrow"));
                 Thread.Sleep(1000);
@@ -45,11 +49,14 @@ namespace BankApp.Console
             if(inputOpt == 1) { 
                 System.Console.Clear();
                 System.Console.WriteLine(FiggleFonts.Standard.Render("ATM"));
-                System.Console.WriteLine("Enter name and PIN number");
-                //Reference Database to see if user info is vaild
-                string userName = System.Console.ReadLine();
-                System.Console.WriteLine(userName);
-                }
+                System.Console.WriteLine("Enter PIN number");             
+                var pin = Int32.Parse(System.Console.ReadLine());
+                System.Console.WriteLine("Enter Account number");
+                var accountNum = Int32.Parse(System.Console.ReadLine());
+                authServices.VerifyAccount( pin, accountNum );
+                
+
+            }
 
 
             //Create Account
